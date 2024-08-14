@@ -1,5 +1,7 @@
 package com.alrosa.staa.gatekeeper_client_single.controller;
 
+import com.alrosa.staa.gatekeeper_client_single.Variables;
+import com.alrosa.staa.gatekeeper_client_single.data.User;
 import com.alrosa.staa.gatekeeper_client_single.data.UserData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,12 +10,40 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import java.net.URL;
-import java.util.ResourceBundle;
+import org.apache.log4j.Logger;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 
+import java.lang.reflect.ParameterizedType;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+/**
+ * Контроллер для главной страницы
+ */
 public class MainPageController implements Initializable {
+    private final Logger logger = Logger.getLogger(MainPageController.class);
+    private final RestTemplate restTemplate = new RestTemplate();
+    private final String url = "https://" + Variables.server_ip + ":" + Variables.server_port;
     @FXML
     private Button buttonUpdateUser = new Button();
+    @FXML
+    private void setButtonUpdateUser() {
+        observableListUserData.clear();
+        ResponseEntity<List<User>> response = null;
+        try {
+            response = restTemplate.exchange(url + "/getUsers", HttpMethod.GET, null, new ParameterizedTypeReference<List<User>>(){});
+            List<User> users = response.getBody();
+            assert users != null;
+            for(User user: users) {
+                observableListUserData.add(new UserData(String.valueOf(user.getId()), user.getFullName()));
+            }
+        } catch (RuntimeException e) {
+            logger.error(e);
+        }
+    }
     @FXML
     private Button buttonEditUser = new Button();
     @FXML

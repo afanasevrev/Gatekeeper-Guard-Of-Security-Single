@@ -4,20 +4,22 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import org.apache.log4j.BasicConfigurator;
 import java.io.IOException;
-
+/**
+ * Точка входа в приложение
+ */
 public class GatekeeperClientApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(GatekeeperClientApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(GatekeeperClientApplication.class.getResource("main-page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 630, 400);
+        stage.setTitle("!");
         stage.setScene(scene);
         stage.show();
     }
-
     public static void main(String[] args) {
+        BasicConfigurator.configure();
         launch();
     }
 }
