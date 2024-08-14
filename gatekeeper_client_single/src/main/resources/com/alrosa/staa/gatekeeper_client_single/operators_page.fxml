@@ -21,8 +21,8 @@
                   <TableView prefHeight="200.0" prefWidth="600.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="ID" />
-                      <TableColumn prefWidth="239.99999237060547" text="Пользователь" />
-                        <TableColumn prefWidth="275.3333435058594" text="Идентификатор" />
+                      <TableColumn prefWidth="239.0" text="Пользователь" />
+                        <TableColumn prefWidth="275.0" text="Идентификатор" />
                     </columns>
                   </TableView>
                </children>
