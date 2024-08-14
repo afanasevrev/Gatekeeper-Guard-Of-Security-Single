@@ -31,4 +31,8 @@ public class UserEntity {
         this.company = company;
         this.cardId = cardId;
     }
+    @Override
+    public String toString() {
+        return this.firstName + " " + this.middleName + " " + this.lastName;
+    }
 }
