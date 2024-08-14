@@ -14,8 +14,8 @@ public class UserEntity {
     private Long id;
     @Column(name = "first_name")
     private String firstName;
-    @Column(name = "second_name")
-    private String secondName;
+    @Column(name = "middle_name")
+    private String middleName;
     @Column(name = "last_name")
     private String lastName;
     @Column(name = "company")
@@ -23,10 +23,10 @@ public class UserEntity {
     @Column(name = "card_id")
     private String cardId;
     public UserEntity() {}
-    public UserEntity(Long id, String firstName, String secondName, String lastName, String company, String cardId) {
+    public UserEntity(Long id, String firstName, String middleName, String lastName, String company, String cardId) {
         this.id = id;
         this.firstName = firstName;
-        this.secondName = secondName;
+        this.middleName = middleName;
         this.lastName = lastName;
         this.company = company;
         this.cardId = cardId;
