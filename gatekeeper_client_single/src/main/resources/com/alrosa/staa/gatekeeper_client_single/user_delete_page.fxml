@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alrosa.staa.gatekeeper_client_single.UserDeletePage">
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" >
    <children>
       <Label layoutX="24.0" layoutY="14.0" prefHeight="119.0" prefWidth="252.0" text="Вы действительно хотите удалить пользователя?" textAlignment="CENTER" wrapText="true">
          <font>
