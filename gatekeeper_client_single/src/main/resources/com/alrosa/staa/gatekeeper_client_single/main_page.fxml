@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="com.alrosa.staa.gatekeeper_client_single.controller.MainPageController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="630.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alrosa.staa.gatekeeper_client_single.controller.MainPageController">
    <children>
       <Label layoutX="20.0" layoutY="14.0" prefHeight="17.0" prefWidth="165.0" text="Пользователи">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <TableView layoutX="29.0" layoutY="55.0" prefHeight="260.0" prefWidth="570.0">
+      <TableView layoutX="20.0" layoutY="57.0" prefHeight="260.0" prefWidth="576.0">
         <columns>
           <TableColumn prefWidth="60.00002861022949" text="ID" />
           <TableColumn prefWidth="500.6666793823242" text="Пользователь" />
