@@ -12,7 +12,7 @@ import java.io.IOException;
 public class GatekeeperClientApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(GatekeeperClientApplication.class.getResource("main-page.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(GatekeeperClientApplication.class.getResource("main_page.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 630, 400);
         stage.setTitle("Главная страница");
         stage.setScene(scene);
