@@ -5,8 +5,10 @@ import com.alrosa.staa.gatekeeper_client_single.request.UserRequest;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 import org.apache.log4j.Logger;
@@ -21,7 +23,7 @@ public class UserAddPageController {
     private final FileChooser fileChooser = new FileChooser();
     private File file;
     @FXML
-    private ImageView imageViewUserPhoto = new ImageView();
+    private ImageView imageViewUserPhoto;
     @FXML
     private TextField textFieldFirstName = new TextField();
     @FXML
@@ -62,13 +64,9 @@ public class UserAddPageController {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JPEG Files", "*.jpg", "*.jpeg", "*.png"));
         file = fileChooser.showOpenDialog(new Stage());
         Image image = new Image(String.valueOf(file));
-        width_x = image.getWidth();
-        height_x = image.getHeight();
-        imageSize.setText(width_x + " x " + height_x);
-        imageView = new ImageView(image);
-        imageView.setFitWidth(300);
-        imageView.setPreserveRatio(true);
-        stackPane.getChildren().add(imageView);
+        imageViewUserPhoto = new ImageView(image);
+        //imageViewUserPhoto.setFitWidth(300);
+        imageViewUserPhoto.setPreserveRatio(true);
     }
     /**
      * Метод проверяет, все ли поля заполнены
