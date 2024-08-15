@@ -3,6 +3,7 @@ package com.alrosa.staa.gatekeeper_client_single.controller;
 import com.alrosa.staa.gatekeeper_client_single.Variables;
 import com.alrosa.staa.gatekeeper_client_single.data.User;
 import com.alrosa.staa.gatekeeper_client_single.data.UserData;
+import com.alrosa.staa.gatekeeper_client_single.view.UserAddPage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -27,6 +29,8 @@ public class MainPageController implements Initializable {
     private final Logger logger = Logger.getLogger(MainPageController.class);
     private final RestTemplate restTemplate = new RestTemplate();
     private final String url = "https://" + Variables.server_ip + ":" + Variables.server_port;
+    private final Stage stage = new Stage();
+    private final UserAddPage userAddPage = new UserAddPage();
     @FXML
     private Button buttonUpdateUser = new Button();
     @FXML
@@ -48,6 +52,10 @@ public class MainPageController implements Initializable {
     private Button buttonEditUser = new Button();
     @FXML
     private Button buttonAddUser = new Button();
+    @FXML
+    private void setButtonAddUser() {
+
+    }
     @FXML
     private Button buttonDeleteUser = new Button();
     @FXML
