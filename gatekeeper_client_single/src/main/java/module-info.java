@@ -8,4 +8,5 @@ module com.alrosa.staa.gatekeeper_client_single {
     requires spring.core;
     opens com.alrosa.staa.gatekeeper_client_single to javafx.fxml;
     exports com.alrosa.staa.gatekeeper_client_single;
+    exports com.alrosa.staa.gatekeeper_client_single.controller;
 }

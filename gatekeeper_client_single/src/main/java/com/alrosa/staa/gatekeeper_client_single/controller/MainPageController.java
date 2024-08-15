@@ -17,8 +17,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-
-import java.lang.reflect.ParameterizedType;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
