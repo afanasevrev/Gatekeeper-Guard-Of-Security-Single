@@ -17,6 +17,8 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -51,8 +53,8 @@ public class MainPageController implements Initializable {
     @FXML
     private Button buttonAddUser = new Button();
     @FXML
-    private void setButtonAddUser() {
-
+    private void setButtonAddUser() throws IOException {
+        userAddPage.start(stage);
     }
     @FXML
     private Button buttonDeleteUser = new Button();
