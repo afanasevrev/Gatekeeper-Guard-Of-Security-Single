@@ -6,9 +6,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 import org.apache.log4j.Logger;
+import java.io.File;
 /**
  * Контроллер для работы с формой добавить пользователя
  */
@@ -16,6 +18,8 @@ public class UserAddPageController {
     private final Logger logger = Logger.getLogger(UserAddPageController.class);
     private final String url = "http://" + Variables.server_ip + ":" + Variables.server_port;
     private final RestTemplate restTemplate = new RestTemplate();
+    private final FileChooser fileChooser = new FileChooser();
+    private File file;
     @FXML
     private ImageView imageViewUserPhoto = new ImageView();
     @FXML
@@ -49,6 +53,23 @@ public class UserAddPageController {
     }
     @FXML
     private Button buttonLoadPhoto = new Button();
+    /**
+     * При нажатии кнопки, выбираем и загружаем фото на ImageView
+     */
+    @FXML
+    private void setButtonLoadPhoto() {
+        fileChooser.setTitle("Выберите файл");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JPEG Files", "*.jpg", "*.jpeg", "*.png"));
+        file = fileChooser.showOpenDialog(new Stage());
+        Image image = new Image(String.valueOf(file));
+        width_x = image.getWidth();
+        height_x = image.getHeight();
+        imageSize.setText(width_x + " x " + height_x);
+        imageView = new ImageView(image);
+        imageView.setFitWidth(300);
+        imageView.setPreserveRatio(true);
+        stackPane.getChildren().add(imageView);
+    }
     /**
      * Метод проверяет, все ли поля заполнены
      * @return boolean
