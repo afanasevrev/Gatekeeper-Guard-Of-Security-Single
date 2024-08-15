@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 public class MainPageController implements Initializable {
     private final Logger logger = Logger.getLogger(MainPageController.class);
     private final RestTemplate restTemplate = new RestTemplate();
-    private final String url = "https://" + Variables.server_ip + ":" + Variables.server_port;
+    private final String url = "http://" + Variables.server_ip + ":" + Variables.server_port;
     private final Stage stage = new Stage();
     private final UserAddPage userAddPage = new UserAddPage();
     @FXML

@@ -9,7 +9,9 @@ import javafx.scene.image.ImageView;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 import org.apache.log4j.Logger;
-
+/**
+ * Контроллер для работы с формой добавить пользователя
+ */
 public class UserAddPageController {
     private final Logger logger = Logger.getLogger(UserAddPageController.class);
     private final String url = "http://" + Variables.server_ip + ":" + Variables.server_port;

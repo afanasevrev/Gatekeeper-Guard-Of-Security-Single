@@ -12,4 +12,6 @@ module com.alrosa.staa.gatekeeper_client_single {
     exports com.alrosa.staa.gatekeeper_client_single;
     exports com.alrosa.staa.gatekeeper_client_single.controller;
     exports com.alrosa.staa.gatekeeper_client_single.view;
+    exports com.alrosa.staa.gatekeeper_client_single.request;
+    exports com.alrosa.staa.gatekeeper_client_single.data;
 }
