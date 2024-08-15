@@ -42,7 +42,7 @@ public class UserAddPageController {
             UserRequest userRequest = new UserRequest(textFieldFirstName.getText(), textFieldMiddleName.getText(), textFieldLastName.getText(), textFieldCompany.getText(), textFieldCardId.getText());
             HttpEntity<UserRequest> request = new HttpEntity<UserRequest>(userRequest, headers);
             ResponseEntity<UserRequest> response = restTemplate.exchange(url + "/setUser", HttpMethod.POST, request, UserRequest.class);
-            logger.info(response.getBody());
+            logger.info(response.getBody().getStatus());
         } else {
             logger.info("Заполните все поля");
         }

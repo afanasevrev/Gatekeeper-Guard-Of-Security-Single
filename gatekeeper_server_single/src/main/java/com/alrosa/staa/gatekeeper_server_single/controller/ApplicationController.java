@@ -2,6 +2,7 @@ package com.alrosa.staa.gatekeeper_server_single.controller;
 
 import com.alrosa.staa.gatekeeper_server_single.entity.UserEntity;
 import com.alrosa.staa.gatekeeper_server_single.request.UserFullName;
+import com.alrosa.staa.gatekeeper_server_single.request.UserRequest;
 import com.alrosa.staa.gatekeeper_server_single.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,8 +31,9 @@ public class ApplicationController {
         return userService.readUser(Long.parseLong(id));
     }
     @PostMapping("/setUser")
-    private String setUser(@RequestBody UserEntity userEntity) {
+    private UserRequest setUser(@RequestBody UserEntity userEntity) {
         userService.createUser(userEntity);
-        return "Пользователь успешно добавлен в систему";
+        UserRequest userRequest = new UserRequest("Пользователь успешно добавлен в систему");
+        return userRequest;
     }
 }
