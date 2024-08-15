@@ -14,7 +14,7 @@ public class GatekeeperClientApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(GatekeeperClientApplication.class.getResource("main-page.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 630, 400);
-        stage.setTitle("!");
+        stage.setTitle("Главная страница");
         stage.setScene(scene);
         stage.show();
     }
