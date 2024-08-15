@@ -11,7 +11,7 @@ import java.io.IOException;
 public class UserAddPage {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(GatekeeperClientApplication.class.getResource("user_add_page.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 300, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 400, 300);
         stage.setTitle("Добавить пользователя");
         stage.setScene(scene);
         stage.show();

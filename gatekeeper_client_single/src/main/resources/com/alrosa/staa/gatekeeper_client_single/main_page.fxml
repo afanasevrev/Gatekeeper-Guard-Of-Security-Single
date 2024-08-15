@@ -14,16 +14,16 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <TableView layoutX="20.0" layoutY="57.0" prefHeight="260.0" prefWidth="576.0">
+      <TableView fx:id="tableViewUsers" layoutX="20.0" layoutY="57.0" prefHeight="260.0" prefWidth="576.0">
         <columns>
-          <TableColumn prefWidth="60.00002861022949" text="ID" />
-          <TableColumn prefWidth="500.6666793823242" text="Пользователь" />
+          <TableColumn fx:id="tableColumnUserId" prefWidth="60.00002861022949" text="ID" />
+          <TableColumn fx:id="tableColumnUserName" prefWidth="500.6666793823242" text="Пользователь" />
         </columns>
       </TableView>
-      <Button layoutX="20.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Обновить" />
-      <Button layoutX="120.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Изменить" />
-      <Button layoutX="220.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Добавить" />
-      <Button layoutX="320.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Удалить" />
-      <Button layoutX="420.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="175.0" text="Открыть журнал событий" />
+      <Button fx:id="buttonUpdateUser" onAction="#setButtonUpdateUser" layoutX="20.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Обновить" />
+      <Button fx:id="buttonEditUser" layoutX="120.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Изменить" />
+      <Button fx:id="buttonAddUser" onAction="#setButtonAddUser" layoutX="220.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Добавить" />
+      <Button fx:id="buttonDeleteUser" layoutX="320.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Удалить" />
+      <Button fx:id="buttonOpenLogs" layoutX="420.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="175.0" text="Открыть журнал событий" />
    </children>
 </AnchorPane>
