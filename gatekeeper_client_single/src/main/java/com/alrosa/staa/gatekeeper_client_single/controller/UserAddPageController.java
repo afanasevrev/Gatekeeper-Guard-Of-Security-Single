@@ -55,11 +55,11 @@ public class UserAddPageController {
             HttpEntity<UserRequest> request = new HttpEntity<UserRequest>(userRequest, headers);
             ResponseEntity<UserRequest> response = restTemplate.exchange(url + "/setUser", HttpMethod.POST, request, UserRequest.class);
             logger.info(response.getBody().getStatus());
+            Stage stage = (Stage) buttonAddUser.getScene().getWindow();
+            stage.close();
         } else {
             logger.info("Заполните все поля");
         }
-        Stage stage = (Stage) buttonAddUser.getScene().getWindow();
-        stage.close();
     }
     @FXML
     private Button buttonLoadPhoto = new Button();
