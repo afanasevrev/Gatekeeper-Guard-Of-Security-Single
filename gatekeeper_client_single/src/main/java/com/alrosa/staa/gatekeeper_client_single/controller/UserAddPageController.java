@@ -7,12 +7,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.PixelFormat;
+import javafx.scene.image.PixelReader;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 import org.apache.log4j.Logger;
 import java.io.File;
+import java.io.IOException;
 /**
  * Контроллер для работы с формой добавить пользователя
  */
@@ -22,6 +25,7 @@ public class UserAddPageController {
     private final RestTemplate restTemplate = new RestTemplate();
     private final FileChooser fileChooser = new FileChooser();
     private File file;
+    private byte[] userPhoto = null;
     @FXML
     private ImageView imageViewUserPhoto = new ImageView();
     @FXML
@@ -63,10 +67,15 @@ public class UserAddPageController {
         fileChooser.setTitle("Выберите файл");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JPEG Files", "*.jpg", "*.jpeg", "*.png"));
         file = fileChooser.showOpenDialog(new Stage());
-        Image image = new Image(String.valueOf(file));
-        imageViewUserPhoto.setFitWidth(300);
-        imageViewUserPhoto.setPreserveRatio(true);
-        imageViewUserPhoto.setImage(image);
+        try {
+            Image image = new Image(String.valueOf(file));
+            imageViewUserPhoto.setPreserveRatio(true);
+            imageViewUserPhoto.setImage(image);
+            userPhoto = imageByteToArray(image);
+        } catch (IllegalArgumentException e) {
+            logger.error("Фотография не выбрана");
+            userPhoto = null;
+        }
     }
     /**
      * Метод проверяет, все ли поля заполнены
@@ -87,5 +96,18 @@ public class UserAddPageController {
         {
             return false;
         }
+    }
+    /**
+     * Метод превращает Image в массив байт
+     * @param image
+     * @return byte[]
+     */
+    private byte[] imageByteToArray(Image image) {
+        int width = (int) image.getWidth();
+        int height = (int) image.getHeight();
+        PixelReader pixelReader = image.getPixelReader();
+        byte[] buffer = new byte[width * height * 4];
+        pixelReader.getPixels(0, 0, width, height, PixelFormat.getByteBgraInstance(), buffer, 0, width * 4);
+        return buffer;
     }
 }

@@ -6,6 +6,7 @@ module com.alrosa.staa.gatekeeper_client_single {
     requires static lombok;
     requires spring.core;
     requires java.logging;
+    requires java.desktop;
     opens com.alrosa.staa.gatekeeper_client_single to javafx.fxml;
     opens com.alrosa.staa.gatekeeper_client_single.controller to javafx.fxml;
     opens com.alrosa.staa.gatekeeper_client_single.view to javafx.fxml;
