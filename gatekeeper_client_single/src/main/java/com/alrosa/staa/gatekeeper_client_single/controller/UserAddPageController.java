@@ -75,12 +75,13 @@ public class UserAddPageController {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JPEG Files", "*.jpg", "*.jpeg", "*.png"));
         file = fileChooser.showOpenDialog(new Stage());
         try {
-            Image image = new Image(String.valueOf(file));
+            //Image image = new Image(String.valueOf(file));
+            Image image = new Image(file.toURI().toString());
             imageViewUserPhoto.setPreserveRatio(true);
             imageViewUserPhoto.setImage(image);
             userPhoto = imageByteToArray(file);
         } catch (IllegalArgumentException e) {
-            logger.info("Фотография не выбрана");
+            logger.info(e);
             userPhoto = null;
         }
     }
