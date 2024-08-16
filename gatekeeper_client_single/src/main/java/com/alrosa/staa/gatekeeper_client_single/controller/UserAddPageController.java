@@ -73,7 +73,7 @@ public class UserAddPageController {
             imageViewUserPhoto.setImage(image);
             userPhoto = imageByteToArray(image);
         } catch (IllegalArgumentException e) {
-            logger.error("Фотография не выбрана");
+            logger.info("Фотография не выбрана");
             userPhoto = null;
         }
     }
