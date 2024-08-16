@@ -82,18 +82,13 @@ public class UserAddPageController {
      * @return boolean
      */
     private boolean isEmptyFields() {
-        if (
-                textFieldFirstName.getText().isEmpty()  ||
+        if (textFieldFirstName.getText().isEmpty()  ||
                 textFieldMiddleName.getText().isEmpty() ||
                 textFieldLastName.getText().isEmpty()   ||
                 textFieldCompany.getText().isEmpty()    ||
-                textFieldCardId.getText().isEmpty()
-           )
-        {
-            return true;
-        }
-        else
-        {
+                textFieldCardId.getText().isEmpty())
+        {   return true;
+        } else {
             return false;
         }
     }
