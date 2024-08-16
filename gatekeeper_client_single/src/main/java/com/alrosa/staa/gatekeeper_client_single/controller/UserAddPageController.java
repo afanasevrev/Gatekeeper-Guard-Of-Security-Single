@@ -15,7 +15,6 @@ import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 import org.apache.log4j.Logger;
 import java.io.File;
-import java.io.IOException;
 /**
  * Контроллер для работы с формой добавить пользователя
  */
