@@ -58,6 +58,8 @@ public class UserAddPageController {
         } else {
             logger.info("Заполните все поля");
         }
+        Stage stage = (Stage) buttonAddUser.getScene().getWindow();
+        stage.close();
     }
     @FXML
     private Button buttonLoadPhoto = new Button();
