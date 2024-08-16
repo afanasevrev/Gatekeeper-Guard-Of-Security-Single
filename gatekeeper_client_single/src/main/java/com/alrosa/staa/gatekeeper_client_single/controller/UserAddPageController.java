@@ -23,7 +23,7 @@ public class UserAddPageController {
     private final FileChooser fileChooser = new FileChooser();
     private File file;
     @FXML
-    private ImageView imageViewUserPhoto;
+    private ImageView imageViewUserPhoto = new ImageView();
     @FXML
     private TextField textFieldFirstName = new TextField();
     @FXML
@@ -64,9 +64,9 @@ public class UserAddPageController {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JPEG Files", "*.jpg", "*.jpeg", "*.png"));
         file = fileChooser.showOpenDialog(new Stage());
         Image image = new Image(String.valueOf(file));
-        imageViewUserPhoto = new ImageView(image);
-        //imageViewUserPhoto.setFitWidth(300);
+        imageViewUserPhoto.setFitWidth(300);
         imageViewUserPhoto.setPreserveRatio(true);
+        imageViewUserPhoto.setImage(image);
     }
     /**
      * Метод проверяет, все ли поля заполнены
