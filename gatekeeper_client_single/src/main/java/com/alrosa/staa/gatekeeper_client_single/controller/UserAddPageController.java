@@ -15,6 +15,9 @@ import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 import org.apache.log4j.Logger;
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+
 /**
  * Контроллер для работы с формой добавить пользователя
  */
@@ -75,7 +78,7 @@ public class UserAddPageController {
             Image image = new Image(String.valueOf(file));
             imageViewUserPhoto.setPreserveRatio(true);
             imageViewUserPhoto.setImage(image);
-            userPhoto = imageByteToArray(image);
+            userPhoto = imageByteToArray(file);
         } catch (IllegalArgumentException e) {
             logger.info("Фотография не выбрана");
             userPhoto = null;
@@ -98,15 +101,15 @@ public class UserAddPageController {
     }
     /**
      * Метод превращает Image в массив байт
-     * @param image
      * @return byte[]
      */
-    private byte[] imageByteToArray(Image image) {
-        int width = (int) image.getWidth();
-        int height = (int) image.getHeight();
-        PixelReader pixelReader = image.getPixelReader();
-        byte[] buffer = new byte[width * height * 4];
-        pixelReader.getPixels(0, 0, width, height, PixelFormat.getByteBgraInstance(), buffer, 0, width * 4);
-        return buffer;
+    private byte[] imageByteToArray(File file) {
+        try {
+            // Чтение всего содержимого файла в массив байтов
+            return Files.readAllBytes(file.toPath());
+        } catch (IOException e) {
+            logger.error(e);
+            return null;
+        }
     }
 }

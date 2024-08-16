@@ -44,7 +44,6 @@ public class ApplicationController {
             PhotoEntity photoEntity = new PhotoEntity(userRequest.getUserPhoto(), userEntity);
             photoService.createPhoto(photoEntity);
         }
-        UserRequest userRequest1 = new UserRequest("Пользователь успешно добавлен в систему");
-        return userRequest1;
+        return new UserRequest("Пользователь успешно добавлен в систему");
     }
 }
