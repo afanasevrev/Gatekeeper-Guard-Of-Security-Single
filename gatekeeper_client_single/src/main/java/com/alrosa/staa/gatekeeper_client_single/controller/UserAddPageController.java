@@ -100,7 +100,7 @@ public class UserAddPageController {
         }
     }
     /**
-     * Метод превращает Image в массив байт
+     * Метод превращает File в массив байт
      * @return byte[]
      */
     private byte[] imageByteToArray(File file) {
