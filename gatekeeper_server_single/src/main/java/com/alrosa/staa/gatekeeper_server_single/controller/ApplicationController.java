@@ -1,9 +1,10 @@
 package com.alrosa.staa.gatekeeper_server_single.controller;
 
+import com.alrosa.staa.gatekeeper_server_single.entity.PhotoEntity;
 import com.alrosa.staa.gatekeeper_server_single.entity.UserEntity;
 import com.alrosa.staa.gatekeeper_server_single.request.UserFullName;
-import com.alrosa.staa.gatekeeper_server_single.request.UserPhoto;
 import com.alrosa.staa.gatekeeper_server_single.request.UserRequest;
+import com.alrosa.staa.gatekeeper_server_single.service.PhotoService;
 import com.alrosa.staa.gatekeeper_server_single.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ public class ApplicationController {
     private Long id;
     @Autowired
     private UserService userService;
+    @Autowired
+    private PhotoService photoService;
     @GetMapping("/")
     private String getInfo() {
         return "Система контроля и управления доступом. Версия для работы с одним контроллером";
@@ -34,15 +37,14 @@ public class ApplicationController {
         return userService.readUser(Long.parseLong(id));
     }
     @PostMapping("/setUser")
-    private UserRequest setUser(@RequestBody UserEntity userEntity) {
+    private UserRequest setUser(@RequestBody UserRequest userRequest) {
+        UserEntity userEntity = new UserEntity(userRequest.getFirstName(), userRequest.getMiddleName(), userRequest.getLastName(), userRequest.getCompany(), userRequest.getCardId());
         userService.createUser(userEntity);
-        id = userEntity.getId();
-        UserRequest userRequest = new UserRequest("Пользователь успешно добавлен в систему");
-        return userRequest;
-    }
-    @PostMapping("/setPhoto")
-    private UserPhoto setPhotoUser(@RequestBody UserPhoto userPhoto) {
-
-        return null;
+        if (userRequest.getUserPhoto() != null) {
+            PhotoEntity photoEntity = new PhotoEntity(userRequest.getUserPhoto(), userEntity);
+            photoService.createPhoto(photoEntity);
+        }
+        UserRequest userRequest1 = new UserRequest("Пользователь успешно добавлен в систему");
+        return userRequest1;
     }
 }

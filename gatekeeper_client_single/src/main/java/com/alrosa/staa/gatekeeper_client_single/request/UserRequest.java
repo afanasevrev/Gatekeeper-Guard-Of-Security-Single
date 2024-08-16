@@ -10,6 +10,7 @@ public class UserRequest {
     private String lastName;
     private String company;
     private String cardId;
+    private byte[] userPhoto;
     private String status;
     public UserRequest() {}
     public UserRequest(String firstName, String middleName, String lastName, String company, String cardId) {

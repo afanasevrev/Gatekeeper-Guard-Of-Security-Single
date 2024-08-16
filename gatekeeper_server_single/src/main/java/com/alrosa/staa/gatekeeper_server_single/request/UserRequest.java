@@ -6,7 +6,13 @@ import lombok.Setter;
 @Setter
 public class UserRequest {
     private Long id;
+    private String firstName;
+    private String middleName;
+    private String lastName;
+    private String company;
+    private String cardId;
     private String status;
+    private byte[] userPhoto;
     public UserRequest() {}
     public UserRequest(String status) {
         this.status = status;

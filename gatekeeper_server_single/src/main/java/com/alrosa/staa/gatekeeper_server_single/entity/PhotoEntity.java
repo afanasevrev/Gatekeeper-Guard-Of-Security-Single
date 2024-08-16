@@ -19,8 +19,7 @@ public class PhotoEntity {
     @JoinColumn(name = "user_id")
     private UserEntity userEntity;
     public PhotoEntity() {}
-    public PhotoEntity(Long id, byte[] userPhoto, UserEntity userEntity) {
-        this.id = id;
+    public PhotoEntity(byte[] userPhoto, UserEntity userEntity) {
         this.userPhoto = userPhoto;
         this.userEntity = userEntity;
     }

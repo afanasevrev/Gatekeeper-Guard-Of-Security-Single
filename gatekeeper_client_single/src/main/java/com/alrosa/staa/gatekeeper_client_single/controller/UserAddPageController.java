@@ -50,6 +50,9 @@ public class UserAddPageController {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
             UserRequest userRequest = new UserRequest(textFieldFirstName.getText(), textFieldMiddleName.getText(), textFieldLastName.getText(), textFieldCompany.getText(), textFieldCardId.getText());
+            if (userPhoto != null) {
+                userRequest.setUserPhoto(userPhoto);
+            }
             HttpEntity<UserRequest> request = new HttpEntity<UserRequest>(userRequest, headers);
             ResponseEntity<UserRequest> response = restTemplate.exchange(url + "/setUser", HttpMethod.POST, request, UserRequest.class);
             logger.info(response.getBody().getStatus());

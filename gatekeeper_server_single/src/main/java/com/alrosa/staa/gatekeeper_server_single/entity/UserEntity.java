@@ -23,8 +23,7 @@ public class UserEntity {
     @Column(name = "card_id")
     private String cardId;
     public UserEntity() {}
-    public UserEntity(Long id, String firstName, String middleName, String lastName, String company, String cardId) {
-        this.id = id;
+    public UserEntity(String firstName, String middleName, String lastName, String company, String cardId) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;

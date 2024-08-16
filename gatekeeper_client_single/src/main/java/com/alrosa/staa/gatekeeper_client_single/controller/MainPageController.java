@@ -1,7 +1,7 @@
 package com.alrosa.staa.gatekeeper_client_single.controller;
 
 import com.alrosa.staa.gatekeeper_client_single.Variables;
-import com.alrosa.staa.gatekeeper_client_single.data.User;
+import com.alrosa.staa.gatekeeper_client_single.data.UserFullName;
 import com.alrosa.staa.gatekeeper_client_single.data.UserData;
 import com.alrosa.staa.gatekeeper_client_single.view.UserAddPage;
 import javafx.collections.FXCollections;
@@ -35,12 +35,12 @@ public class MainPageController implements Initializable {
     @FXML
     private void setButtonUpdateUser() {
         observableListUserData.clear();
-        ResponseEntity<List<User>> response = null;
+        ResponseEntity<List<UserFullName>> response = null;
         try {
-            response = restTemplate.exchange(url + "/getUsers", HttpMethod.GET, null, new ParameterizedTypeReference<List<User>>(){});
-            List<User> users = response.getBody();
+            response = restTemplate.exchange(url + "/getUsers", HttpMethod.GET, null, new ParameterizedTypeReference<List<UserFullName>>(){});
+            List<UserFullName> users = response.getBody();
             assert users != null;
-            for(User user: users) {
+            for(UserFullName user: users) {
                 observableListUserData.add(new UserData(String.valueOf(user.getId()), user.getFullName()));
             }
         } catch (RuntimeException e) {
