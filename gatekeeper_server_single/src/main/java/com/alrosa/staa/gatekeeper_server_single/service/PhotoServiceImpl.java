@@ -33,7 +33,7 @@ public class PhotoServiceImpl implements PhotoService {
         PhotoEntity photoEntity = photoRepository.findById(id).get();
         photoEntity.setUserPhoto(entity.getUserPhoto());
         photoRepository.save(photoEntity);
-        return "Фотография успешно обновлена в БД";
+        return "Фотография пользователя успешно обновлена в БД";
     }
     @Override
     public PhotoEntity findByUserEntity(UserEntity userEntity) {
