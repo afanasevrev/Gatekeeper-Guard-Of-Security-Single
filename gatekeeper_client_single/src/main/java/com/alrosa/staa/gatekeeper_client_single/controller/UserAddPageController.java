@@ -7,8 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.PixelFormat;
-import javafx.scene.image.PixelReader;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.springframework.http.*;
@@ -17,7 +15,6 @@ import org.apache.log4j.Logger;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-
 /**
  * Контроллер для работы с формой добавить пользователя
  */
