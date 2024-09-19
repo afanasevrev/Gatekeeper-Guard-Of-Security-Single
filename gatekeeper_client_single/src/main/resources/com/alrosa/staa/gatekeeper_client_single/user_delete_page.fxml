@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" >
+<AnchorPane fx:controller="com.alrosa.staa.gatekeeper_client_single.controller.UserDeletePageController" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" >
    <children>
       <Label layoutX="24.0" layoutY="14.0" prefHeight="119.0" prefWidth="252.0" text="Вы действительно хотите удалить пользователя?" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="40.0" layoutY="150.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Удалить" />
-      <Button layoutX="160.0" layoutY="150.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Отменить" />
+      <Button fx:id="buttonDelete" onAction="#setButtonDelete" layoutX="40.0" layoutY="150.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Удалить" />
+      <Button fx:id="buttonCancel" onAction="#setButtonCancel" layoutX="160.0" layoutY="150.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Отменить" />
    </children>
 </AnchorPane>

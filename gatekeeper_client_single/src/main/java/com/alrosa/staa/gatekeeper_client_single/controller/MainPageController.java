@@ -4,6 +4,7 @@ import com.alrosa.staa.gatekeeper_client_single.Variables;
 import com.alrosa.staa.gatekeeper_client_single.data.UserFullName;
 import com.alrosa.staa.gatekeeper_client_single.data.UserData;
 import com.alrosa.staa.gatekeeper_client_single.view.UserAddPage;
+import com.alrosa.staa.gatekeeper_client_single.view.UserDeletePage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -30,6 +31,7 @@ public class MainPageController implements Initializable {
     private final String url = "http://" + Variables.server_ip + ":" + Variables.server_port;
     private final Stage stage = new Stage();
     private final UserAddPage userAddPage = new UserAddPage();
+    private final UserDeletePage userDeletePage = new UserDeletePage();
     @FXML
     private Button buttonUpdateUser = new Button();
     @FXML
@@ -57,6 +59,10 @@ public class MainPageController implements Initializable {
     }
     @FXML
     private Button buttonDeleteUser = new Button();
+    @FXML
+    private void setButtonDeleteUser() throws IOException {
+        userDeletePage.start(stage);
+    }
     @FXML
     private Button buttonOpenLogs = new Button();
     @FXML
