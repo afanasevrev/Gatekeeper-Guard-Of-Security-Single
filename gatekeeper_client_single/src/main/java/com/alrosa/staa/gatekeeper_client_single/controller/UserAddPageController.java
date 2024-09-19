@@ -87,15 +87,11 @@ public class UserAddPageController {
      * @return boolean
      */
     private boolean isEmptyFields() {
-        if (textFieldFirstName.getText().isEmpty()  ||
+        return textFieldFirstName.getText().isEmpty() ||
                 textFieldMiddleName.getText().isEmpty() ||
-                textFieldLastName.getText().isEmpty()   ||
-                textFieldCompany.getText().isEmpty()    ||
-                textFieldCardId.getText().isEmpty())
-        {   return true;
-        } else {
-            return false;
-        }
+                textFieldLastName.getText().isEmpty() ||
+                textFieldCompany.getText().isEmpty() ||
+                textFieldCardId.getText().isEmpty();
     }
     /**
      * Метод превращает File в массив байт
