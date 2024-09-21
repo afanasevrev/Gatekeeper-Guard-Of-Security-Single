@@ -3,7 +3,9 @@ package com.alrosa.staa.gatekeeper_client_single.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
+/**
+ * Класс для удаления пользователя из БД
+ */
 public class UserDeletePageController {
     @FXML
     private Button buttonDelete = new Button();
