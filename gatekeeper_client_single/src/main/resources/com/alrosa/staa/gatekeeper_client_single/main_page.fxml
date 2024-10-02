@@ -21,7 +21,7 @@
         </columns>
       </TableView>
       <Button fx:id="buttonUpdateUser" layoutX="120.0" layoutY="520.0" mnemonicParsing="false" onAction="#setButtonUpdateUser" prefHeight="25.0" prefWidth="90.0" text="Обновить" />
-      <Button fx:id="buttonEditUser" layoutX="20.0" layoutY="520.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Изменить" />
+      <Button fx:id="buttonEditUser" onAction="#setButtonEditUser" layoutX="20.0" layoutY="520.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Изменить" />
       <Button fx:id="buttonAddUser" layoutX="220.0" layoutY="520.0" mnemonicParsing="false" onAction="#setButtonAddUser" prefHeight="25.0" prefWidth="90.0" text="Добавить" />
       <Button fx:id="buttonDeleteUser" onAction="#setButtonDeleteUser" layoutX="320.0" layoutY="520.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Удалить" />
       <Button fx:id="buttonOpenLogs" layoutX="420.0" layoutY="520.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="Открыть журнал событий" />

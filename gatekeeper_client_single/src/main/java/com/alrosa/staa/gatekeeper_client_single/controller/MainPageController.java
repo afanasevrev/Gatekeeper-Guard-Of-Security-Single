@@ -5,6 +5,7 @@ import com.alrosa.staa.gatekeeper_client_single.data.UserFullName;
 import com.alrosa.staa.gatekeeper_client_single.data.UserData;
 import com.alrosa.staa.gatekeeper_client_single.view.UserAddPage;
 import com.alrosa.staa.gatekeeper_client_single.view.UserDeletePage;
+import com.alrosa.staa.gatekeeper_client_single.view.UserEditPage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -32,6 +33,7 @@ public class MainPageController implements Initializable {
     private final Stage stage = new Stage();
     private final UserAddPage userAddPage = new UserAddPage();
     private final UserDeletePage userDeletePage = new UserDeletePage();
+    private final UserEditPage userEditPage = new UserEditPage();
     @FXML
     private Button buttonUpdateUser = new Button();
     @FXML
@@ -51,6 +53,10 @@ public class MainPageController implements Initializable {
     }
     @FXML
     private Button buttonEditUser = new Button();
+    @FXML
+    private void setButtonEditUser() throws IOException {
+        userEditPage.start(stage);
+    }
     @FXML
     private Button buttonAddUser = new Button();
     @FXML
